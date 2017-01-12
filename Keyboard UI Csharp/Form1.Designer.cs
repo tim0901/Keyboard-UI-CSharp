@@ -41,6 +41,17 @@
             this.buttonSelect = new System.Windows.Forms.Button();
             this.key1 = new System.Windows.Forms.PictureBox();
             this.key2 = new System.Windows.Forms.PictureBox();
+            this.key3 = new System.Windows.Forms.PictureBox();
+            this.key4 = new System.Windows.Forms.PictureBox();
+            this.key5 = new System.Windows.Forms.PictureBox();
+            this.key9 = new System.Windows.Forms.PictureBox();
+            this.key8 = new System.Windows.Forms.PictureBox();
+            this.key7 = new System.Windows.Forms.PictureBox();
+            this.key6 = new System.Windows.Forms.PictureBox();
+            this.key13 = new System.Windows.Forms.PictureBox();
+            this.key12 = new System.Windows.Forms.PictureBox();
+            this.key11 = new System.Windows.Forms.PictureBox();
+            this.key10 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreen)).BeginInit();
@@ -49,6 +60,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarBlue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.key1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.key2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key10)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBarRed
@@ -161,7 +183,7 @@
             // 
             this.key1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.key1.Image = ((System.Drawing.Image)(resources.GetObject("key1.Image")));
-            this.key1.Location = new System.Drawing.Point(200, 300);
+            this.key1.Location = new System.Drawing.Point(50, 260);
             this.key1.Name = "key1";
             this.key1.Size = new System.Drawing.Size(50, 50);
             this.key1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -173,7 +195,7 @@
             // 
             this.key2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.key2.Image = ((System.Drawing.Image)(resources.GetObject("key2.Image")));
-            this.key2.Location = new System.Drawing.Point(252, 300);
+            this.key2.Location = new System.Drawing.Point(115, 260);
             this.key2.Name = "key2";
             this.key2.Size = new System.Drawing.Size(50, 50);
             this.key2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -181,11 +203,154 @@
             this.key2.TabStop = false;
             this.key2.Click += new System.EventHandler(this.key2_Click);
             // 
+            // key3
+            // 
+            this.key3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key3.Image = ((System.Drawing.Image)(resources.GetObject("key3.Image")));
+            this.key3.Location = new System.Drawing.Point(167, 260);
+            this.key3.Name = "key3";
+            this.key3.Size = new System.Drawing.Size(50, 50);
+            this.key3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key3.TabIndex = 12;
+            this.key3.TabStop = false;
+            this.key3.Click += new System.EventHandler(this.key3_Click);
+            // 
+            // key4
+            // 
+            this.key4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key4.Image = ((System.Drawing.Image)(resources.GetObject("key4.Image")));
+            this.key4.Location = new System.Drawing.Point(219, 260);
+            this.key4.Name = "key4";
+            this.key4.Size = new System.Drawing.Size(50, 50);
+            this.key4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key4.TabIndex = 13;
+            this.key4.TabStop = false;
+            this.key4.Click += new System.EventHandler(this.key4_Click);
+            // 
+            // key5
+            // 
+            this.key5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key5.Image = ((System.Drawing.Image)(resources.GetObject("key5.Image")));
+            this.key5.Location = new System.Drawing.Point(271, 260);
+            this.key5.Name = "key5";
+            this.key5.Size = new System.Drawing.Size(50, 50);
+            this.key5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key5.TabIndex = 14;
+            this.key5.TabStop = false;
+            this.key5.Click += new System.EventHandler(this.key5_Click);
+            // 
+            // key9
+            // 
+            this.key9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key9.Image = ((System.Drawing.Image)(resources.GetObject("key9.Image")));
+            this.key9.Location = new System.Drawing.Point(492, 260);
+            this.key9.Name = "key9";
+            this.key9.Size = new System.Drawing.Size(50, 50);
+            this.key9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key9.TabIndex = 18;
+            this.key9.TabStop = false;
+            this.key9.Click += new System.EventHandler(this.key9_Click);
+            // 
+            // key8
+            // 
+            this.key8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key8.Image = ((System.Drawing.Image)(resources.GetObject("key8.Image")));
+            this.key8.Location = new System.Drawing.Point(440, 260);
+            this.key8.Name = "key8";
+            this.key8.Size = new System.Drawing.Size(50, 50);
+            this.key8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key8.TabIndex = 17;
+            this.key8.TabStop = false;
+            this.key8.Click += new System.EventHandler(this.key8_Click);
+            // 
+            // key7
+            // 
+            this.key7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key7.Image = ((System.Drawing.Image)(resources.GetObject("key7.Image")));
+            this.key7.Location = new System.Drawing.Point(388, 260);
+            this.key7.Name = "key7";
+            this.key7.Size = new System.Drawing.Size(50, 50);
+            this.key7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key7.TabIndex = 16;
+            this.key7.TabStop = false;
+            this.key7.Click += new System.EventHandler(this.key7_Click);
+            // 
+            // key6
+            // 
+            this.key6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key6.Image = ((System.Drawing.Image)(resources.GetObject("key6.Image")));
+            this.key6.Location = new System.Drawing.Point(336, 260);
+            this.key6.Name = "key6";
+            this.key6.Size = new System.Drawing.Size(50, 50);
+            this.key6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key6.TabIndex = 15;
+            this.key6.TabStop = false;
+            this.key6.Click += new System.EventHandler(this.key6_Click);
+            // 
+            // key13
+            // 
+            this.key13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key13.Image = ((System.Drawing.Image)(resources.GetObject("key13.Image")));
+            this.key13.Location = new System.Drawing.Point(713, 260);
+            this.key13.Name = "key13";
+            this.key13.Size = new System.Drawing.Size(50, 50);
+            this.key13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key13.TabIndex = 22;
+            this.key13.TabStop = false;
+            this.key13.Click += new System.EventHandler(this.key13_Click);
+            // 
+            // key12
+            // 
+            this.key12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key12.Image = ((System.Drawing.Image)(resources.GetObject("key12.Image")));
+            this.key12.Location = new System.Drawing.Point(661, 260);
+            this.key12.Name = "key12";
+            this.key12.Size = new System.Drawing.Size(50, 50);
+            this.key12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key12.TabIndex = 21;
+            this.key12.TabStop = false;
+            this.key12.Click += new System.EventHandler(this.key12_Click);
+            // 
+            // key11
+            // 
+            this.key11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key11.Image = ((System.Drawing.Image)(resources.GetObject("key11.Image")));
+            this.key11.Location = new System.Drawing.Point(609, 260);
+            this.key11.Name = "key11";
+            this.key11.Size = new System.Drawing.Size(50, 50);
+            this.key11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key11.TabIndex = 20;
+            this.key11.TabStop = false;
+            this.key11.Click += new System.EventHandler(this.key11_Click);
+            // 
+            // key10
+            // 
+            this.key10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key10.Image = ((System.Drawing.Image)(resources.GetObject("key10.Image")));
+            this.key10.Location = new System.Drawing.Point(557, 260);
+            this.key10.Name = "key10";
+            this.key10.Size = new System.Drawing.Size(50, 50);
+            this.key10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key10.TabIndex = 19;
+            this.key10.TabStop = false;
+            this.key10.Click += new System.EventHandler(this.key10_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 572);
+            this.Controls.Add(this.key13);
+            this.Controls.Add(this.key12);
+            this.Controls.Add(this.key11);
+            this.Controls.Add(this.key10);
+            this.Controls.Add(this.key9);
+            this.Controls.Add(this.key8);
+            this.Controls.Add(this.key7);
+            this.Controls.Add(this.key6);
+            this.Controls.Add(this.key5);
+            this.Controls.Add(this.key4);
+            this.Controls.Add(this.key3);
             this.Controls.Add(this.key2);
             this.Controls.Add(this.key1);
             this.Controls.Add(this.buttonSelect);
@@ -209,6 +374,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarBlue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.key1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.key2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,6 +404,17 @@
         private System.Windows.Forms.Button buttonSelect;
         private System.Windows.Forms.PictureBox key1;
         private System.Windows.Forms.PictureBox key2;
+        private System.Windows.Forms.PictureBox key3;
+        private System.Windows.Forms.PictureBox key4;
+        private System.Windows.Forms.PictureBox key5;
+        private System.Windows.Forms.PictureBox key9;
+        private System.Windows.Forms.PictureBox key8;
+        private System.Windows.Forms.PictureBox key7;
+        private System.Windows.Forms.PictureBox key6;
+        private System.Windows.Forms.PictureBox key13;
+        private System.Windows.Forms.PictureBox key12;
+        private System.Windows.Forms.PictureBox key11;
+        private System.Windows.Forms.PictureBox key10;
     }
 }
 
