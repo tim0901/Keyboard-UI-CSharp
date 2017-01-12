@@ -20,17 +20,13 @@ namespace Keyboard_UI_Csharp
         {
             InitializeComponent();
             BackColor = Color.DarkGray;
-            for (int x = 0; x < variables.selectedKeys.Length; x++)
-            {
-                variables.selectedKeys[0] = 0;
-            }
             for (int x = 0; x < variables.keyRGBS.GetLength(0); x++)
             {
                 variables.keyRGBS[x, 1] = 1;
                 variables.keyRGBS[x, 2] = 1;
                 variables.keyRGBS[x, 3] = 1;
-
             }
+            variables.setup();
 
         }
 
@@ -94,47 +90,49 @@ namespace Keyboard_UI_Csharp
         {
             Graphics g;
             g = this.CreateGraphics();
+
             variables.R = decimal.ToInt32(numericUpDownRed.Value);
             variables.G = decimal.ToInt32(numericUpDownGreen.Value);
             variables.B = decimal.ToInt32(numericUpDownBlue.Value);
             SolidBrush brushNewColour = new SolidBrush(Color.FromArgb(255, variables.R, variables.G, variables.B));
             g.FillRectangle(brushNewColour, new Rectangle(421, 51, 99, 49));
             g.Dispose();
-
         }
 
         public void oldColour()
         {
             Graphics g;
             g = this.CreateGraphics();
-            variables.oldR = decimal.ToInt32(numericUpDownRed.Value);
-            variables.oldG = decimal.ToInt32(numericUpDownGreen.Value);
-            variables.oldB = decimal.ToInt32(numericUpDownBlue.Value);
+
+            if (variables.onSelect == 1 && variables.clickedKeys.Count != 0)
+            { 
+                variables.oldR = variables.keyRGBS[variables.clickedKeys.Last(), 0];
+                variables.oldG = variables.keyRGBS[variables.clickedKeys.Last(), 1];
+                variables.oldB = variables.keyRGBS[variables.clickedKeys.Last(), 2];
+
+            }
+            else
+            {
+                variables.oldR = decimal.ToInt32(numericUpDownRed.Value);
+                variables.oldG = decimal.ToInt32(numericUpDownGreen.Value);
+                variables.oldB = decimal.ToInt32(numericUpDownBlue.Value);
+
+            }
             SolidBrush brushOldColour = new SolidBrush(Color.FromArgb(255, variables.oldR, variables.oldG, variables.oldB));
             g.FillRectangle(brushOldColour, new Rectangle(421, 101, 99, 49));
             g.Dispose();
-
         }
 
         private void buttonSelect_Click(object sender, EventArgs e)
         {
-            for (int x = 1; x < variables.selectedKeys.Length; x++)
+            foreach (var key in variables.clickedKeys)
             {
-                if (variables.selectedKeys[x] == 1)
-                {
-                    variables.keyRGBS[x, 0] = variables.R;
-                    variables.keyRGBS[x, 1] = variables.G;
-                    variables.keyRGBS[x, 2] = variables.B;
-
-                }
-                else
-                {
-
-                }
+                    variables.keyRGBS[key, 0] = variables.R;
+                    variables.keyRGBS[key, 1] = variables.G;
+                    variables.keyRGBS[key, 2] = variables.B;
             }
             oldColour();
             keyboardRefresh();
-
         }
 
         private void key1_Click(object sender, EventArgs e)
@@ -142,48 +140,52 @@ namespace Keyboard_UI_Csharp
             variables.keyNumber = 1;
             shiftCheck();
 
-            if (variables.selectedKeys[variables.keyNumber] == 1)
+            if (variables.clickedKeys.Contains(variables.keyNumber))
             {
                 if (variables.shiftPressed == false)
                 {
                     keySizeReset();
-                    this.key1.Location = new Point(199, 299);
-                    this.key1.Size = new Size(52, 52);
-                    variables.selectedKeys[variables.keyNumber] = 1;
+                    variables.clickedKeys.Add(variables.keyNumber);
+                    setSizeLarge();
                 }
-                else {
-                    this.key1.Location = new Point(200, 300);
-                    this.key1.Size = new Size(50, 50);
-                    variables.selectedKeys[variables.keyNumber] = 0;
+                else
+                {
+                    setSizeSmall();
+                    variables.clickedKeys.Remove(variables.keyNumber);
                 }
             }
-            else if (variables.selectedKeys[variables.keyNumber] == 0)
+            else
             {
                 if (variables.shiftPressed == false)
                 {
                     keySizeReset();
                 }
-                this.key1.Location = new Point(199, 299);
-                this.key1.Size = new Size(52, 52);
-                variables.selectedKeys[variables.keyNumber] = 1;
+                variables.clickedKeys.Add(variables.keyNumber);
+                setSizeLarge();
+
             }
+            variables.onSelect = 1;
+            oldColour();
+
         }
 
         public void keySizeReset()
         {
-            for (int n = 1; n <= 120; n++)
-            {
-                variables.selectedKeys[n] = 0;
-            }
-            this.key1.Location = new Point(200, 300);
-            this.key1.Size = new Size(50, 50);
-            this.key2.Location = new Point(252, 300);
-            this.key2.Size = new Size(50, 50);
+            //this.key1.Location = new Point(200, 300);
+            //this.key1.Size = new Size(50, 50);
+            //this.key2.Location = new Point(252, 300);
+            //this.key2.Size = new Size(50, 50);
 
+            foreach (var key in variables.clickedKeys)
+            {
+                setSizeSmall();
+            }
+            variables.clickedKeys.Clear();
         }
 
         public void shiftCheck()
         {
+
             if (Control.ModifierKeys == Keys.Shift)
             {
                 variables.shiftPressed = true;
@@ -194,7 +196,6 @@ namespace Keyboard_UI_Csharp
             }
 
         }
-
 
         protected override void OnPaint(PaintEventArgs PaintEvnt) 
            {
@@ -221,32 +222,46 @@ namespace Keyboard_UI_Csharp
             variables.keyNumber = 2;
             shiftCheck();
 
-            if (variables.selectedKeys[variables.keyNumber] == 1)
+            if (variables.clickedKeys.Contains(variables.keyNumber))
             {
                 if (variables.shiftPressed == false)
                 {
                     keySizeReset();
-                    this.key2.Location = new Point(251, 299);
-                    this.key2.Size = new Size(52, 52);
-                    variables.selectedKeys[variables.keyNumber] = 1;
+                    variables.clickedKeys.Add(variables.keyNumber);
+                    setSizeLarge();
                 }
                 else
                 {
-                    this.key2.Location = new Point(252, 300);
-                    this.key2.Size = new Size(50, 50);
-                    variables.selectedKeys[variables.keyNumber] = 0;
+                    setSizeSmall();
+                    variables.clickedKeys.Remove(variables.keyNumber);
                 }
             }
-            else if (variables.selectedKeys[variables.keyNumber] == 0)
+            else
             {
                 if (variables.shiftPressed == false)
                 {
                     keySizeReset();
                 }
-                this.key2.Location = new Point(251, 299);
-                this.key2.Size = new Size(52, 52);
-                variables.selectedKeys[variables.keyNumber] = 1;
+                variables.clickedKeys.Add(variables.keyNumber);
+                setSizeLarge();
+
             }
+            variables.onSelect = 1;
+            oldColour();
+        }
+
+        public void setSizeLarge()
+        {
+            this.Controls.Find("key" + variables.keyNumber, true)[0].Location = variables.keyLocations[variables.keyNumber, 1];
+            this.Controls.Find("key" + variables.keyNumber, true)[0].Size = variables.large;
+
+        }
+
+        public void setSizeSmall()
+        {
+            this.Controls.Find("key" + variables.keyNumber, true)[0].Location = variables.keyLocations[variables.keyNumber, 0];
+            this.Controls.Find("key" + variables.keyNumber, true)[0].Size = variables.small;
+
         }
     }
 
@@ -260,8 +275,36 @@ namespace Keyboard_UI_Csharp
         public static int oldB = 0;
         public static int keyNumber = 0;
         public static bool shiftPressed;
-        public static int[] selectedKeys = new int[121];
         public static int[,] keyRGBS = new int[121, 4];
+        public static int onSelect;
+        public static int lastKeyPressed;
+        public static List<int> clickedKeys = new List<int>();
+        public static Size large = new Size(52,52);
+        public static Size small = new Size(50, 50);
+        public static Point[,] keyLocations = new Point[121,2];
+
+        
+        public static void setup()
+        {
+            keyLocations[1, 0] = new Point(200, 300);
+            keyLocations[1, 1] = new Point(199, 299);
+            keyLocations[2, 0] = new Point(252, 300);
+            keyLocations[2, 1] = new Point(251, 299);
+            keyLocations[3, 0] = new Point(304, 300);
+            keyLocations[3, 1] = new Point(253, 299);
+            keyLocations[4, 0] = new Point(200, 300);
+            keyLocations[4, 1] = new Point(199, 299);
+            keyLocations[5, 0] = new Point(200, 300);
+            keyLocations[5, 1] = new Point(199, 299);
+            keyLocations[6, 0] = new Point(200, 300);
+            keyLocations[6, 1] = new Point(199, 299);
+            keyLocations[7, 0] = new Point(200, 300);
+            keyLocations[7, 1] = new Point(199, 299);
+            keyLocations[8, 0] = new Point(200, 300);
+            keyLocations[8, 1] = new Point(199, 299);
+
+        }
+
 
     }
 }
