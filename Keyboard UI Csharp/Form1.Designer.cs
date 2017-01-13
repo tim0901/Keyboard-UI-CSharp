@@ -90,7 +90,6 @@
             this.labelRed.Size = new System.Drawing.Size(15, 13);
             this.labelRed.TabIndex = 1;
             this.labelRed.Text = "R";
-            this.labelRed.Click += new System.EventHandler(this.label1_Click);
             // 
             // numericUpDownRed
             // 
@@ -126,7 +125,6 @@
             this.labelGreen.Size = new System.Drawing.Size(15, 13);
             this.labelGreen.TabIndex = 4;
             this.labelGreen.Text = "G";
-            this.labelGreen.Click += new System.EventHandler(this.labelGreen_Click);
             // 
             // trackBarGreen
             // 
@@ -158,7 +156,6 @@
             this.labelBlue.Size = new System.Drawing.Size(14, 13);
             this.labelBlue.TabIndex = 7;
             this.labelBlue.Text = "B";
-            this.labelBlue.Click += new System.EventHandler(this.labelBlue_Click);
             // 
             // trackBarBlue
             // 
@@ -189,7 +186,8 @@
             this.key1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key1.TabIndex = 10;
             this.key1.TabStop = false;
-            this.key1.Click += new System.EventHandler(this.key1_Click);
+            this.key1.Tag = 1;
+            this.key1.Click += new System.EventHandler(this.key_Click);
             // 
             // key2
             // 
@@ -201,7 +199,8 @@
             this.key2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key2.TabIndex = 11;
             this.key2.TabStop = false;
-            this.key2.Click += new System.EventHandler(this.key2_Click);
+            this.key2.Tag = 2;
+            this.key2.Click += new System.EventHandler(this.key_Click);
             // 
             // key3
             // 
@@ -213,7 +212,8 @@
             this.key3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key3.TabIndex = 12;
             this.key3.TabStop = false;
-            this.key3.Click += new System.EventHandler(this.key3_Click);
+            this.key3.Tag = 3;
+            this.key3.Click += new System.EventHandler(this.key_Click);
             // 
             // key4
             // 
@@ -225,7 +225,8 @@
             this.key4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key4.TabIndex = 13;
             this.key4.TabStop = false;
-            this.key4.Click += new System.EventHandler(this.key4_Click);
+            this.key4.Tag = 4;
+            this.key4.Click += new System.EventHandler(this.key_Click);
             // 
             // key5
             // 
@@ -237,7 +238,8 @@
             this.key5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key5.TabIndex = 14;
             this.key5.TabStop = false;
-            this.key5.Click += new System.EventHandler(this.key5_Click);
+            this.key5.Tag = 5;
+            this.key5.Click += new System.EventHandler(this.key_Click);
             // 
             // key9
             // 
@@ -249,7 +251,8 @@
             this.key9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key9.TabIndex = 18;
             this.key9.TabStop = false;
-            this.key9.Click += new System.EventHandler(this.key9_Click);
+            this.key9.Tag = 9;
+            this.key9.Click += new System.EventHandler(this.key_Click);
             // 
             // key8
             // 
@@ -261,7 +264,8 @@
             this.key8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key8.TabIndex = 17;
             this.key8.TabStop = false;
-            this.key8.Click += new System.EventHandler(this.key8_Click);
+            this.key8.Tag = 8;
+            this.key8.Click += new System.EventHandler(this.key_Click);
             // 
             // key7
             // 
@@ -273,7 +277,8 @@
             this.key7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key7.TabIndex = 16;
             this.key7.TabStop = false;
-            this.key7.Click += new System.EventHandler(this.key7_Click);
+            this.key7.Tag = 7;
+            this.key7.Click += new System.EventHandler(this.key_Click);
             // 
             // key6
             // 
@@ -285,7 +290,8 @@
             this.key6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key6.TabIndex = 15;
             this.key6.TabStop = false;
-            this.key6.Click += new System.EventHandler(this.key6_Click);
+            this.key6.Tag = 6;
+            this.key6.Click += new System.EventHandler(this.key_Click);
             // 
             // key13
             // 
@@ -297,7 +303,8 @@
             this.key13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key13.TabIndex = 22;
             this.key13.TabStop = false;
-            this.key13.Click += new System.EventHandler(this.key13_Click);
+            this.key13.Tag = 13;
+            this.key13.Click += new System.EventHandler(this.key_Click);
             // 
             // key12
             // 
@@ -309,7 +316,8 @@
             this.key12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key12.TabIndex = 21;
             this.key12.TabStop = false;
-            this.key12.Click += new System.EventHandler(this.key12_Click);
+            this.key12.Tag = 12;
+            this.key12.Click += new System.EventHandler(this.key_Click);
             // 
             // key11
             // 
@@ -321,7 +329,8 @@
             this.key11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key11.TabIndex = 20;
             this.key11.TabStop = false;
-            this.key11.Click += new System.EventHandler(this.key11_Click);
+            this.key11.Tag = 11;
+            this.key11.Click += new System.EventHandler(this.key_Click);
             // 
             // key10
             // 
@@ -333,7 +342,8 @@
             this.key10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.key10.TabIndex = 19;
             this.key10.TabStop = false;
-            this.key10.Click += new System.EventHandler(this.key10_Click);
+            this.key10.Tag = 10;
+            this.key10.Click += new System.EventHandler(this.key_Click);
             // 
             // Form1
             // 

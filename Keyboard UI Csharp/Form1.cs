@@ -34,12 +34,7 @@ namespace Keyboard_UI_Csharp
         {
            
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void trackBarRed_Scroll(object sender, EventArgs e)
         {
             numericUpDownRed.Value = trackBarRed.Value;
@@ -75,15 +70,45 @@ namespace Keyboard_UI_Csharp
             trackBarBlue.Value = decimal.ToInt32(numericUpDownBlue.Value);
             newColour();
         }
-
-        private void labelGreen_Click(object sender, EventArgs e)
+        
+        private void key_Click(object sender, EventArgs e)
         {
+            PictureBox key = sender as PictureBox;
+            variables.keyNumber = Convert.ToInt32(key.Tag);
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                variables.shiftPressed = true;
+            }
+            else
+            {
+                variables.shiftPressed = false;
+            }
+            if (variables.clickedKeys.Contains(variables.keyNumber))
+            {
+                if (variables.shiftPressed == false)
+                {
+                    keySizeReset();
+                    variables.clickedKeys.Add(variables.keyNumber);
+                    setSize("large");
+                }
+                else
+                {
+                    setSize("small");
+                    variables.clickedKeys.Remove(variables.keyNumber);
+                }
+            }
+            else
+            {
+                if (variables.shiftPressed == false)
+                {
+                    keySizeReset();
+                }
+                variables.clickedKeys.Add(variables.keyNumber);
+                setSize("large");
 
-        }
-
-        private void labelBlue_Click(object sender, EventArgs e)
-        {
-
+            }
+            variables.onSelect = 1;
+            oldColour();
         }
 
         public void newColour()
@@ -132,43 +157,12 @@ namespace Keyboard_UI_Csharp
                     variables.keyRGBS[key, 2] = variables.B;
             }
             oldColour();
-            keyboardRefresh();
-        }
-
-        private void key1_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 1;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
+            foreach (var key in variables.clickedKeys)
             {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
+                this.Controls.Find("key" + key, true)[0].BackColor = Color.FromArgb(100, variables.keyRGBS[key, 0], variables.keyRGBS[key, 1], variables.keyRGBS[key, 2]);
             }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-
         }
-
+        
         public void keySizeReset()
         {
             foreach (var key in variables.clickedKeys)
@@ -177,20 +171,6 @@ namespace Keyboard_UI_Csharp
                 this.Controls.Find("key" + key, true)[0].Size = variables.small;
             }
             variables.clickedKeys.Clear();
-        }
-
-        public void shiftCheck()
-        {
-
-            if (Control.ModifierKeys == Keys.Shift)
-            {
-                variables.shiftPressed = true;
-            }
-            else
-            {
-                variables.shiftPressed = false;
-            }
-
         }
 
         protected override void OnPaint(PaintEventArgs PaintEvnt) 
@@ -207,425 +187,19 @@ namespace Keyboard_UI_Csharp
             g.Dispose();
         }
 
-        public void keyboardRefresh()
+        public void setSize(string size)
         {
-            foreach (var key in variables.clickedKeys)
+            if (size == "large")
             {
-                this.Controls.Find("key" + key, true)[0].BackColor = Color.FromArgb(100, variables.keyRGBS[key, 0], variables.keyRGBS[key, 1], variables.keyRGBS[key, 2]);
+                this.Controls.Find("key" + variables.keyNumber, true)[0].Location = variables.keyLocations[variables.keyNumber, 1];
+                this.Controls.Find("key" + variables.keyNumber, true)[0].Size = variables.large;
+            }
+            else if(size == "small")
+            {
+                this.Controls.Find("key" + variables.keyNumber, true)[0].Location = variables.keyLocations[variables.keyNumber, 0];
+                this.Controls.Find("key" + variables.keyNumber, true)[0].Size = variables.small;
             }
         }
-
-        private void key2_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 2;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        public void setSizeLarge()
-        {
-            this.Controls.Find("key" + variables.keyNumber, true)[0].Location = variables.keyLocations[variables.keyNumber, 1];
-            this.Controls.Find("key" + variables.keyNumber, true)[0].Size = variables.large;
-
-        }
-
-        public void setSizeSmall()
-        {
-            this.Controls.Find("key" + variables.keyNumber, true)[0].Location = variables.keyLocations[variables.keyNumber, 0];
-            this.Controls.Find("key" + variables.keyNumber, true)[0].Size = variables.small;
-
-        }
-
-        private void key3_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 3;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        private void key4_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 4;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        private void key5_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 5;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        private void key6_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 6;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        private void key7_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 7;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        private void key8_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 8;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        private void key9_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 9;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        private void key10_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 10;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        private void key11_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 11;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        private void key12_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 12;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        private void key13_Click(object sender, EventArgs e)
-        {
-            variables.keyNumber = 13;
-            shiftCheck();
-
-            if (variables.clickedKeys.Contains(variables.keyNumber))
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                    variables.clickedKeys.Add(variables.keyNumber);
-                    setSizeLarge();
-                }
-                else
-                {
-                    setSizeSmall();
-                    variables.clickedKeys.Remove(variables.keyNumber);
-                }
-            }
-            else
-            {
-                if (variables.shiftPressed == false)
-                {
-                    keySizeReset();
-                }
-                variables.clickedKeys.Add(variables.keyNumber);
-                setSizeLarge();
-
-            }
-            variables.onSelect = 1;
-            oldColour();
-        }
-
-        
     }
 
     public class variables
@@ -677,7 +251,5 @@ namespace Keyboard_UI_Csharp
             keyLocations[13, 1] = new Point(712, 259);
 
         }
-
-
     }
 }
