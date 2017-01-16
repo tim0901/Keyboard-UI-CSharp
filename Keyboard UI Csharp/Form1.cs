@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 
 namespace Keyboard_UI_Csharp
 {
 
-    
+
 
     public partial class Form1 : Form
     {
@@ -22,19 +24,18 @@ namespace Keyboard_UI_Csharp
             BackColor = Color.DarkGray;
             for (int x = 0; x < variables.keyRGBS.GetLength(0); x++)
             {
-                variables.keyRGBS[x, 0] = 1;
-                variables.keyRGBS[x, 1] = 1;
-                variables.keyRGBS[x, 2] = 1;
+                variables.keyRGBS[x, 0] = 0;
+                variables.keyRGBS[x, 1] = 0;
+                variables.keyRGBS[x, 2] = 0;
             }
             variables.setup();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
         }
-        
+
         private void trackBarRed_Scroll(object sender, EventArgs e)
         {
             numericUpDownRed.Value = trackBarRed.Value;
@@ -70,7 +71,17 @@ namespace Keyboard_UI_Csharp
             trackBarBlue.Value = decimal.ToInt32(numericUpDownBlue.Value);
             newColour();
         }
-        
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            save();
+        }
+
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            load();
+        }
+
         private void key_Click(object sender, EventArgs e)
         {
             PictureBox key = sender as PictureBox;
@@ -252,7 +263,7 @@ namespace Keyboard_UI_Csharp
                     keySizeReset();
                 }
                 variables.clickedKeys.Add(variables.keyNumber);
-                switch(variables.keyNumber)
+                switch (variables.keyNumber)
                 {
                     case 40:
                         this.Controls.Find("key" + variables.keyNumber, true)[0].Location = variables.keyLocations[variables.keyNumber, 1];
@@ -352,7 +363,7 @@ namespace Keyboard_UI_Csharp
             g = this.CreateGraphics();
 
             if (variables.onSelect == 1 && variables.clickedKeys.Count != 0)
-            { 
+            {
                 variables.oldR = variables.keyRGBS[variables.clickedKeys.Last(), 0];
                 variables.oldG = variables.keyRGBS[variables.clickedKeys.Last(), 1];
                 variables.oldB = variables.keyRGBS[variables.clickedKeys.Last(), 2];
@@ -374,9 +385,9 @@ namespace Keyboard_UI_Csharp
         {
             foreach (var key in variables.clickedKeys)
             {
-                    variables.keyRGBS[key, 0] = variables.R;
-                    variables.keyRGBS[key, 1] = variables.G;
-                    variables.keyRGBS[key, 2] = variables.B;
+                variables.keyRGBS[key, 0] = variables.R;
+                variables.keyRGBS[key, 1] = variables.G;
+                variables.keyRGBS[key, 2] = variables.B;
             }
             oldColour();
             foreach (var key in variables.clickedKeys)
@@ -384,7 +395,7 @@ namespace Keyboard_UI_Csharp
                 this.Controls.Find("key" + key, true)[0].BackColor = Color.FromArgb(100, variables.keyRGBS[key, 0], variables.keyRGBS[key, 1], variables.keyRGBS[key, 2]);
             }
         }
-        
+
         public void keySizeReset()
         {
             foreach (var key in variables.clickedKeys)
@@ -452,8 +463,8 @@ namespace Keyboard_UI_Csharp
             variables.clickedKeys.Clear();
         }
 
-        protected override void OnPaint(PaintEventArgs PaintEvnt) 
-           {
+        protected override void OnPaint(PaintEventArgs PaintEvnt)
+        {
             Graphics g;
             g = this.CreateGraphics();
             Pen outline = new Pen(Color.Black);
@@ -468,18 +479,98 @@ namespace Keyboard_UI_Csharp
 
         public void setSize(string size)
         {
+
             if (size == "large")
             {
                 this.Controls.Find("key" + variables.keyNumber, true)[0].Location = variables.keyLocations[variables.keyNumber, 1];
                 this.Controls.Find("key" + variables.keyNumber, true)[0].Size = variables.large;
             }
-            else if(size == "small")
+            else if (size == "small")
             {
                 this.Controls.Find("key" + variables.keyNumber, true)[0].Location = variables.keyLocations[variables.keyNumber, 0];
                 this.Controls.Find("key" + variables.keyNumber, true)[0].Size = variables.small;
             }
         }
+        static async void save()
+        {
+            Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.InitialDirectory = "c:\\";
+            saveFileDialog1.Filter = "Keyboard Layout|*.txt";
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.FilterIndex = 1;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((myStream = saveFileDialog1.OpenFile()) != null)
+                {
+                myStream.Close();
+                }
+                using (StreamWriter writer = File.CreateText(saveFileDialog1.FileName))
+                {
+                    string[,] stringRGB = new string[120, 2];
+                    string temp1;
+                    string temp2;
+                    string temp3;
+                    for (int n = 1; n <= 120; n++)
+                    {
+                        temp1 = variables.keyRGBS[n, 0].ToString();
+                        temp2 = variables.keyRGBS[n, 1].ToString();
+                        temp3 = variables.keyRGBS[n, 2].ToString();
+                        await writer.WriteLineAsync(temp1);
+                        await writer.WriteLineAsync(temp2);
+                        await writer.WriteLineAsync(temp3);
+                    }
+                }
+            }
+        }
+        public void load()
+        {
+            Stream myStream;
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "c:\\";
+            openFileDialog1.Filter = "Keyboard Layout|*.txt";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((myStream = openFileDialog1.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                        }
+                        using (StreamReader sr = new StreamReader(openFileDialog1.FileName))
+                        {
+                            string line;
+                            int n = 1;
+                            int m = 0;
+                            while ((line = sr.ReadLine()) != null && (n <= 120) && (m <= 5))
+                            {
+                                variables.keyRGBS[n, m] = Convert.ToInt32(line);
+                                /**/
+                                m++;
+                                if (m == 3)
+                                {
+                                    m = 0;
+                                    Controls.Find("key" + n, true)[0].BackColor = Color.FromArgb(100, variables.keyRGBS[n, 0], variables.keyRGBS[n, 1], variables.keyRGBS[n, 2]);
+                                    n++;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+        }
     }
+}
 
     public class variables
     {
@@ -491,15 +582,14 @@ namespace Keyboard_UI_Csharp
         public static int oldB = 0;
         public static int keyNumber = 0;
         public static bool shiftPressed;
-        public static int[,] keyRGBS = new int[121, 4];
+        public static int[,] keyRGBS = new int[125, 4];
         public static int onSelect;
         public static int lastKeyPressed;
         public static List<int> clickedKeys = new List<int>();
         public static Size large = new Size(52,52);
         public static Size small = new Size(50, 50);
         public static Point[,] keyLocations = new Point[121,2];
-
-        
+    
         public static void setup()
         {
             keyLocations[1, 0] = new Point(50, 260);
@@ -742,4 +832,3 @@ namespace Keyboard_UI_Csharp
             keyLocations[119, 1] = new Point(1222, 537);
         }
     }
-}

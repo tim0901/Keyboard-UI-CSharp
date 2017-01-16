@@ -158,6 +158,8 @@
             this.key117 = new System.Windows.Forms.PictureBox();
             this.key118 = new System.Windows.Forms.PictureBox();
             this.key119 = new System.Windows.Forms.PictureBox();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreen)).BeginInit();
@@ -621,7 +623,7 @@
             this.key18.TabStop = false;
             this.key18.Tag = "18";
             this.key18.Click += new System.EventHandler(this.key_Click);
-            //
+            // 
             // key19
             // 
             this.key19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -1805,6 +1807,45 @@
             this.key109.Tag = "109";
             this.key109.Click += new System.EventHandler(this.key_Click);
             // 
+            // key114
+            // 
+            this.key114.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key114.Image = ((System.Drawing.Image)(resources.GetObject("key114.Image")));
+            this.key114.Location = new System.Drawing.Point(830, 538);
+            this.key114.Name = "key114";
+            this.key114.Size = new System.Drawing.Size(63, 50);
+            this.key114.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key114.TabIndex = 119;
+            this.key114.TabStop = false;
+            this.key114.Tag = "114";
+            this.key114.Click += new System.EventHandler(this.key_Click);
+            // 
+            // key113
+            // 
+            this.key113.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key113.Image = ((System.Drawing.Image)(resources.GetObject("key113.Image")));
+            this.key113.Location = new System.Drawing.Point(765, 538);
+            this.key113.Name = "key113";
+            this.key113.Size = new System.Drawing.Size(63, 50);
+            this.key113.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key113.TabIndex = 120;
+            this.key113.TabStop = false;
+            this.key113.Tag = "113";
+            this.key113.Click += new System.EventHandler(this.key_Click);
+            // 
+            // key112
+            // 
+            this.key112.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.key112.Image = ((System.Drawing.Image)(resources.GetObject("key112.Image")));
+            this.key112.Location = new System.Drawing.Point(700, 538);
+            this.key112.Name = "key112";
+            this.key112.Size = new System.Drawing.Size(63, 50);
+            this.key112.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.key112.TabIndex = 121;
+            this.key112.TabStop = false;
+            this.key112.Tag = "112";
+            this.key112.Click += new System.EventHandler(this.key_Click);
+            // 
             // key110
             // 
             this.key110.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -1830,45 +1871,6 @@
             this.key111.TabStop = false;
             this.key111.Tag = "111";
             this.key111.Click += new System.EventHandler(this.key_Click);
-            // 
-            // key112
-            // 
-            this.key112.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.key112.Image = ((System.Drawing.Image)(resources.GetObject("key112.Image")));
-            this.key112.Location = new System.Drawing.Point(700, 538);
-            this.key112.Name = "key112";
-            this.key112.Size = new System.Drawing.Size(63, 50);
-            this.key112.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.key112.TabIndex = 121;
-            this.key112.TabStop = false;
-            this.key112.Tag = "112";
-            this.key112.Click += new System.EventHandler(this.key_Click);
-            // 
-            // key113
-            // 
-            this.key113.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.key113.Image = ((System.Drawing.Image)(resources.GetObject("key113.Image")));
-            this.key113.Location = new System.Drawing.Point(765, 538);
-            this.key113.Name = "key113";
-            this.key113.Size = new System.Drawing.Size(63, 50);
-            this.key113.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.key113.TabIndex = 120;
-            this.key113.TabStop = false;
-            this.key113.Tag = "113";
-            this.key113.Click += new System.EventHandler(this.key_Click);
-            // 
-            // key114
-            // 
-            this.key114.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.key114.Image = ((System.Drawing.Image)(resources.GetObject("key114.Image")));
-            this.key114.Location = new System.Drawing.Point(830, 538);
-            this.key114.Name = "key114";
-            this.key114.Size = new System.Drawing.Size(63, 50);
-            this.key114.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.key114.TabIndex = 119;
-            this.key114.TabStop = false;
-            this.key114.Tag = "114";
-            this.key114.Click += new System.EventHandler(this.key_Click);
             // 
             // key115
             // 
@@ -1935,11 +1937,33 @@
             this.key119.Tag = "119";
             this.key119.Click += new System.EventHandler(this.key_Click);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(558, 90);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 23);
+            this.buttonSave.TabIndex = 130;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonLoad
+            // 
+            this.buttonLoad.Location = new System.Drawing.Point(558, 119);
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.Size = new System.Drawing.Size(75, 23);
+            this.buttonLoad.TabIndex = 131;
+            this.buttonLoad.Text = "Load";
+            this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1399, 762);
+            this.ClientSize = new System.Drawing.Size(1400, 760);
+            this.Controls.Add(this.buttonLoad);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.key119);
             this.Controls.Add(this.key118);
             this.Controls.Add(this.key117);
@@ -2069,6 +2093,7 @@
             this.Controls.Add(this.numericUpDownRed);
             this.Controls.Add(this.labelRed);
             this.Controls.Add(this.trackBarRed);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Keyboard UI";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -2333,6 +2358,8 @@
         private System.Windows.Forms.PictureBox key117;
         private System.Windows.Forms.PictureBox key118;
         private System.Windows.Forms.PictureBox key119;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonLoad;
     }
 }
 
